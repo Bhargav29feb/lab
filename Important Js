@@ -1,0 +1,168 @@
+
+Conversation opened. 4 messages. All messages read.
+
+Skip to content
+Using The Webplant Mail with screen readers
+Search
+
+
+important js 
+
+
+Mail
+COMPOSE
+Labels
+Inbox
+Starred
+Sent Mail
+Drafts (17)
+Info
+Updates
+More 
+Hangouts
+
+ 
+ 
+Move to Inbox More 
+4 of 9  
+ 
+Collapse all Print all In new window
+Fwd: Important Js
+
+Anish R.S <anish@thewebplant.in>
+Attachments12/17/15
+
+to me 
+---------- Forwarded message ----------
+From: Anish R.S <anish@thewebplant.in>
+Date: Mon, Aug 31, 2015 at 1:14 PM
+Subject: Important Js
+To: Anuj Kaushik <anuj.k@thewebplant.in>, Rohit Kumar Vashisht <rohitk@thewebplant.in>, Soni Singh <soni@thewebplant.in>, Simant Verma <simant@thewebplant.in>
+
+Attachments area
+
+Bhuvan Chander Joshi <bhuvan@thewebplant.in>
+AttachmentsFeb 19
+
+to Yatendra 
+
+Attachments area
+
+Bhuvan Chander Joshi <bhuvan@thewebplant.in>
+AttachmentsFeb 22
+
+to Harish 
+
+Attachments area
+
+Bhuvan Chander Joshi <bhuvan@thewebplant.in>
+AttachmentsMay 16
+
+to me 
+
+Attachments area
+	
+Click here to Reply or Forward
+0.62 GB (2%) of 30 GB used
+Manage
+Program Policies
+Powered by Google
+Last account activity: 6 hours ago
+Details
+
+/*************************
+	Fixed Header
+*************************/
+
+<script>
+$(window).scroll(function(){
+var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+shrinkOn = 300,
+body = document.querySelector(".header-container");
+if ($(this).scrollTop() > 10){
+$('.header-container').addClass("sticky-header");
+}
+else{
+$('.header-container').removeClass("sticky-header");
+}
+});
+</script>
+
+/*************************
+	Placeholder
+*************************/
+
+$(".custom_search .input .hs-input").attr("placeholder", "Search Our Site...");
+
+
+$(".custom-footer-search .input .hs-input").attr("placeholder", "Search..");
+$(".custom-footer-search .input .hs-input").focus(function() {
+    $(this).attr('placeholder', ' ')
+}).blur(function() {
+    $(this).attr('placeholder', 'Search..')
+})
+
+/*************************
+	Search Bar
+*************************/
+
+<form onsubmit="return doSearch()">
+	<input class="text" type="text" name="s" size="17" value="" id="q"/>
+	<a href="#" class="submit" onclick="doSearch()">Search</a>
+</form>
+<script>
+function doSearch() {
+	var q = document.getElementById("q").value;
+	var search_url = "http://essencehealthcare.com/member/search-results.aspx?usterms=";
+	window.open(search_url+q);
+	return true;
+}
+</script>
+
+/*************************
+	Convert Image to Background
+*************************/
+
+// Custom Banner
+var bannerImage = $('.banner-image img').attr('src');
+$('.custom-banner').css('background-image', 'url(' + bannerImage + ')');
+$('.banner-image').closest('.row-fluid-wrapper').remove();
+
+/*************************
+	Back To Top
+*************************/
+
+$('.footer-container-wrapper').after('<a id="back-to-top" href="#top"><span></span>Back To Top</a>');
+$("#back-to-top").hide();
+
+$(window).scroll(function(){
+if ($(window).scrollTop()>100){
+    $("#back-to-top").fadeIn(500);
+}
+else
+{
+    $("#back-to-top").fadeOut(500);
+}
+});
+//back to top
+$("#back-to-top").click(function(){
+    $('body,html').animate({scrollTop:0},500);
+    return false;
+});
+
+/*************************
+	Toggle and Slide
+*************************/
+
+<script>
+$(document).ready(function(){
+	//click the following to toggle
+	$(".search_click").click(function() {
+	   //need the following to toggle
+	   $(".custom_search form").toggle();  
+	});
+});
+</script>
+Important Js.txt
+Open
+Displaying Important Js.txt.
