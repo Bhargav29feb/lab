@@ -166,3 +166,22 @@ $(document).ready(function(){
 Important Js.txt
 Open
 Displaying Important Js.txt.
+
+==========================================================================================================================================
+
+click multipale dropdown open
+======================================
+$('.navbar-collapse').hide();   
+$('.ddc-btn-nav').click(function(){
+  $('.navbar-collapse').slideUp();   
+  $('.navbar-inner ul.custom-icon-header li').removeClass('active');
+  if(!$(this).next().is(':visible')) {
+      $(this).next().slideDown()
+      $(this).parent().toggleClass('active'); 
+  };
+});
+
+
+
+
+
