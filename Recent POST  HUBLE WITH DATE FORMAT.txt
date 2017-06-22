@@ -1,0 +1,13 @@
+<h3>RECENT POSTS</h3>
+{% set rec_posts = blog_recent_posts('default', 5) %}
+<div class= "recent-post">
+   {% for rec_post in rec_posts %}
+<div class="item">
+<div class="tab-content-inside">
+<h2><a href="{{rec_post.absolute_url}}">{{ rec_post.name }}</a></h2>
+<div class="date">{{ content.publish_date_local_time.strftime('%B') }} {{ content.publish_date_local_time.strftime('%d') }},  {{ content.publish_date_local_time.strftime('%Y') }}
+</div>
+</div>
+</div>
+{% endfor %}
+</div>

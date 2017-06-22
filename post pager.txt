@@ -1,0 +1,36 @@
+         
+<div  class="blog_next_prev_buttons">
+{% if content.next_post_slug %}
+  <div class="custom-next">
+  <div class="next-post-vertical">
+  <span><i>Next Post</i></span>
+      <h3><a href="/{{ content.next_post_slug }}">
+      {{ content.next_post_name }}
+     </a>
+     </h3>
+     </div>
+  </div>
+  {% endif %}
+   <span class="bg-overlay"></span>
+ 
+<div  class="custom_blog_next-previous">
+  {% if content.previous_post_slug %}
+  <div class="custom-previous">
+  <div class="pre-post-vertical">
+   <span><i>Next Post</i></span>
+      <h3><a href="/{{ content.previous_post_slug }}">
+          {% if content.previous_post_featured_image %}
+          {% endif %}
+      {{ content.previous_post_name }}</a>
+	  </h3>
+      </div>
+  </div>
+   {% endif %}
+ </div>
+</div>
+
+<style>
+.custom-next, .custom-previous{
+   background:url('{{ content.featured_image }}');
+}
+</style>  

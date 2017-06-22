@@ -1,0 +1,20 @@
+<div class="featured-category">
+<h2>Featured Category: Vehicle Wraps</h2>
+{% set rec_posts = blog_recent_topic_posts('default', 'vehicle-wraps', 4) %}
+{% for rec_post in rec_posts %}
+{% if rec_post.post_list_summary_featured_image %}
+<div class="custom-featuredt-post-box" >
+<a class="custom-featured-post-img" href="{{rec_post.absolute_url}}">
+<div class="post-bottom-feature"style="background:url('{{ rec_post.post_list_summary_featured_image }}');">   
+</div>    
+</a>
+{% endif %}
+<div class="post-title-featured"><a href="{{ rec_post.name }}">{{ rec_post.name }}</a></div>
+<span class="custom-date featured">
+{{ rec_post.publish_date_local_time.strftime('%B') }}
+{{ rec_post.publish_date_local_time.strftime('%d') }},
+{{ rec_post.publish_date_local_time.strftime('%Y') }}
+</span>
+</div>
+{% endfor %}
+</div>

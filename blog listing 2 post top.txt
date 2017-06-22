@@ -1,0 +1,47 @@
+{% if current_page_num < 2 %}
+{% for content in contents %}
+    {% if loop.index <= 4 %}
+    <div class="post-item top-post-item">
+        {% if not simple_list_page %}
+    	<div class="hs-featured-image-wrapper">
+		<a href="{{content.absolute_url}}" title="" class="hs-featured-image-link">
+		<div class="custom-blog-image-wrapper" style="background:url('{{ content.post_list_summary_featured_image }}')">
+				 {% if content.post_list_summary_featured_image %}
+                    <img src="{{ content.post_list_summary_featured_image }}" class="hs-featured-image" alt="{{ content.featured_image_alt_text | escape }}">
+				{% endif %}
+			</div>
+			 </a>
+			
+          </div>
+            <div class="post-header">
+               <a href="{{content.absolute_url}}"> <h2>{{ content.name }}</h2>
+               <div class="custom-post-content">
+				{{ content.post_list_content|safe|truncatehtml(100) }}
+                </div>
+                </a>
+                <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                    {%if content.blog_post_author %}
+					<div class="custom-author-image">
+					 {% if content.blog_post_author.avatar %} <div class="hs-author-avatar">
+                     <a class="author-link" href="{{ group.absolute_url }}/author/{{ content.blog_post_author.slug }}">
+                     <img src="{{ content.blog_post_author.avatar }}"></a> </div> {% endif %}
+					</div>
+					<div class="custom-author-name">
+                        <a class="author-link" href="{{ group.absolute_url }}/author/{{ content.blog_post_author.slug }}">{{ content.blog_post_author.display_name }}</a>
+						   <span class="custom-date">{{ content.publish_date_local_time.strftime('%b') }} {{ content.publish_date_local_time.strftime('%-d') }} 
+						   
+						   </span>
+						</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="custom-latest-post-item">
+			  <h6>Latest</h6>
+            </div>
+        {% else %}
+            <h2 class="post-listing-simple"><a href="{{content.absolute_url}}">{{ content.name }}</a></h2>
+        {% endif %}
+    </div>
+     {% endif %}
+{% endfor %}
+{% endif %}

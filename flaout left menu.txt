@@ -1,0 +1,295 @@
+
+$(function () {
+    
+    
+    $('.post-listing').masonry({
+  // options
+  itemSelector: '.post-item',
+  Width: 3
+});
+    
+    $('.custom-menu-primary').after('<a class="mobile-icon"></a>');
+    $('.custom-menu-primary .hs-menu-flow-horizontal>ul').before('<a class="close-icon"></a>');
+    $('.mobile-icon, .close-icon').click(function () {
+        $('body').toggleClass('show-mobile-nav ');
+    });
+    function setMenuHeight() {
+        if ($(window).width() <= 767) {
+            var height = $(document).outerHeight(true);
+            $('.custom-menu-primary').height(height);
+        }
+    }
+    setMenuHeight();
+    $(window).on('resize', setMenuHeight);
+    $('body> div').find('script:not(script[type="IN/Share"])').remove().end().wrapAll('<div id="site-wrapper"></div>');
+    
+    
+
+});
+
+Rohit Bhandari <rohitb@thewebplant.in>
+12/20/16
+
+to me 
+---------- Forwarded message ----------
+From: Rohit Bhandari <rohitb@thewebplant.in>
+Date: Mon, Dec 19, 2016 at 8:32 PM
+Subject: Right Top Menu
+To: Saurabh Patwa <saurabh@thewebplant.in>
+
+
+/* Fix menu disappearing on desktop after toggling mobile menu */
+@media screen and (min-width:990px) {
+	.custom-menu-primary .hs-menu-wrapper { 
+		display:block !important;
+	}
+    
+    .custom-header-social {
+        width: auto !important;
+        float: right !important;
+    }
+    
+    .custom-menu-primary .hs-menu-wrapper>ul>li:nth-child(5) {
+        margin-top: 28px;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+    
+    .custom-menu-primary .hs-menu-wrapper > ul > li:nth-child(5) > a{
+        border-radius: 3px;
+        background-color: #d6dd4b;
+        color: #fff;
+        border-bottom: 1px solid #b4bb29;
+        text-align: center;
+        white-space: nowrap;
+        padding:9px;
+        line-height: 16px;
+    }
+    
+}
+
+
+
+
+/* ==========================================================================
+   Mobile Menu - Toggle Side Menu - Right
+   ========================================================================== */
+
+ 
+/* Variables
+   ========================================================================== */
+
+{% set mobileIconColor      = "#333" %} /* Set mobile icon color */
+{% set closeIconColor       = "#fff" %} /* Set close icon color */
+{% set menuBg               = "#333" %} /* Set full menu background color */
+{% set mobileLinkColor      = "#fff" %} /* Set link Color */
+{% set mobileLinkColorHover = "#ccc" %} /* Set link Hover Color */
+ 
+
+/* Toggle Button
+   ========================================================================== */ 
+
+.mobile-icon {
+    display: none;    /* Hide button on Desktop */
+    cursor: pointer;  /* Mouse pointer type on hover */
+    width: 46px;      /* Button width */
+    height: 46px;     /* Button height */  
+    line-height: 48px;
+    text-align: center;
+    margin: 10px; 
+    position: absolute;
+    margin:0;
+    top: 24px;
+    right: 67px;
+    font-family: "entypo-fontello";
+    font-size: 30px;
+    border-radius: 2px;
+    color: #fff;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.mobile-icon:hover {
+    text-decoration: none;
+    background-color: #d6dd4b;
+    border-color: #d6dd4b;
+    color: #fff;
+}
+
+/* Close Button
+   ========================================================================== */  
+
+.close-icon {
+    display: none !important;
+    cursor: pointer;
+    font-family: "entypo-fontello";
+    font-size: 30px;
+    height: 46px;
+    line-height: 48px;
+    width: 46px !important;
+    background: #007abc;
+    text-align: center;
+    border-radius: 2px;
+    color: #d6dd4b;
+    border: 1px solid transparent;
+    text-decoration: none !important;
+    margin: 21px 22px 10px 20px;
+    float: right;
+    position: relative;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.close-icon:hover{
+    background-color: #d6dd4b;
+    color: #ffffff;
+    border-color: #d6dd4b;
+}
+
+/* Menu Styles on Mobile Devices
+   ========================================================================== */  
+ 
+@media (min-width: 989px) {
+
+     /* Will prevent the '100% Height' script for the Main Menu to affect desktop */
+     .custom-menu-primary {
+          height: auto !important;
+     }
+
+}
+ 
+@media (max-width: 989px) {
+
+     body, html {
+          height: 100%;
+     }
+
+     /* Show the Mobile and Close Icons */
+     .mobile-icon,
+     .close-icon {
+          display: block !important;
+     }
+
+     /* Container added with js and is required for transforms to work */
+     #site-wrapper{
+        max-width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: relative;
+     }
+
+     
+     /* Provide spacing for the menu ul */
+     .custom-menu-primary .hs-menu-flow-horizontal>ul {
+        clear: both;
+        padding-right: 0 !important;
+        padding-top: 12px;
+        float: none;
+        display: block!important;
+        overflow: hidden;
+     }
+     
+     .custom-menu-primary .hs-menu-wrapper.hs-menu-flow-horizontal.flyouts>ul li.hs-item-has-children ul.hs-menu-children-wrapper {
+         display:block!important;
+         width:100%!important;
+         opacity:1!important;
+           visibility: visible!important;
+           position:static!important;
+     }
+     
+     .custom-menu-primary .hs-menu-wrapper>ul {
+        margin-right: 0;
+        z-index:9999999999;
+    }
+     
+     .custom-menu-primary .hs-menu-flow-horizontal > ul > li{
+        border-bottom: 0;
+        float: none!important;
+     }
+     
+     .custom-menu-primary .hs-menu-flow-horizontal > ul > li > a{
+        border-bottom: 1px solid #e1e1e1 !important;
+        padding: 13px 28px !important;
+        line-height: 29.7px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #303030;
+        text-decoration: none;
+        height: auto;
+        transition: 0;
+        display: block;
+     }
+     .custom-menu-primary .hs-menu-wrapper>ul li a:hover {
+             background-color:#007abc !important;
+        color: #ffffff !important;
+     }
+     
+     .custom-menu-primary .hs-menu-wrapper>ul ul li a {
+        line-height: 21.45px;
+        font-size: 13px;
+        text-decoration: none;
+        white-space: normal!important;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1px solid #e1e1e1!important;
+        color: #666666;
+        padding: 13px 28px;
+        padding-left: 50px;
+    }
+
+    .custom-menu-primary .hs-menu-flow-horizontal > ul > li:first-child > a{
+        border-top: 1px solid #e1e1e1;
+     }
+     .custom-menu-primary .hs-menu-flow-horizontal > ul li a:before{
+        content:"\25BA";
+        font-family: "entypo-fontello";
+        font-size: 7px;
+        margin-left: -10px;
+        vertical-align: top;
+        color:#d6dd4b;
+        padding-right: 4px;
+     }
+
+     
+     .custom-menu-primary .hs-menu-flow-horizontal  ul li  a:hover:before{
+        color: #fff;
+     }
+
+
+     /* Mobile Nav is HIDDEN By Default */
+     .custom-menu-primary {
+        position: fixed;
+        width: 100% !important; /* must match the value above in 'left' */
+        z-index: 1000;
+        background: #fff; 
+        right: -100%;
+        transform: scale(0.5);
+        transform-origin: 0 0 0;
+        top: 0;
+        -webkit-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transition: all 0.6s ease;
+        transition: all 0.6s ease;
+        -webkit-transform-origin: 0% 0%;
+        -moz-transform-origin: 0% 0%;
+        -ms-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+     }
+     .show-mobile-nav .custom-menu-primary {
+        transform: translate3d(-100%, 0px, 0px);
+        overflow-y: scroll!important;
+        padding-bottom: 89px;
+        height: 100%!important;
+        width: 100%!important;
+     }
+     
+     /* All Main Containers Display FULL Width By Default */
+     .header-container-wrapper, .body-container-wrapper, .footer-container-wrapper {
+          -webkit-transition: -webkit-transform 500ms ease;
+          -moz-transition: -moz-transform 500ms ease;
+          -o-transition: -o-transform 500ms ease;
+          transition: transform 500ms ease;
+     }
+     
+
+}

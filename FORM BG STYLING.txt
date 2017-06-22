@@ -1,0 +1,24 @@
+Whenever your form has a bg and other stylings, and you have to make it 50% in desktop and 100% in mobile, don't style the input, instead use the following code :
+
+.hs_cos_wrapper_type_form, 
+.hs_cos_wrapper_type_blog_subscribe, 
+.hs_cos_wrapper_type_google_search, 
+.hs_cos_wrapper_type_email_simple_subscription form, 
+.hs_cos_wrapper_type_password_prompt  {
+    background: #f2f2f2;
+}
+
+.one-column .hs_cos_wrapper_type_form, 
+.one-column .hs_cos_wrapper_type_blog_subscribe, 
+.one-column .hs_cos_wrapper_type_google_search, 
+.one-column .hs_cos_wrapper_type_email_simple_subscription form, 
+.one-column .hs_cos_wrapper_type_password_prompt  {
+    width: 50%;
+}
+.one-column .hs_cos_wrapper_type_form, 
+.one-column .hs_cos_wrapper_type_blog_subscribe, 
+.one-column .hs_cos_wrapper_type_google_search, 
+.one-column .hs_cos_wrapper_type_email_simple_subscription form, 
+.one-column .hs_cos_wrapper_type_password_prompt  {
+    width: 100%;
+}

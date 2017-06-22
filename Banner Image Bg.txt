@@ -1,0 +1,11 @@
+{% image "background_image" label='Select a background image', 
+src='//cdn2.hubspot.net/hubfs/2403650/Biribiri_July2016__Images/about-ulm1.jpg', 
+export_to_template_context=True %}
+
+<style>
+.custom-banner-image-wrapper{
+   background:url('{{ widget_data.background_image.src }}');
+}
+</style>
+
+

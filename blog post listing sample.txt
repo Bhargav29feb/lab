@@ -1,0 +1,3 @@
+.blog .post-listing-simple .hs-author-avatar img {
+     max-width: 90px;
+}

@@ -1,0 +1,5 @@
+<style>
+.custom-banner-image-wrapper{
+   background:url('{{ content.featured_image }}');
+}
+</style>  

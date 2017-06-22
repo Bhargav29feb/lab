@@ -1,0 +1,27 @@
+<div class="custom-lastest-post-box">
+{% set rec_posts = blog_recent_posts('default', 1) %}
+{% for rec_post in rec_posts %}
+
+{% if rec_post.post_list_summary_featured_image %}
+<h3>Latest Post By VMS</h3>
+ <a class="custom-latest-post-img" href="{{rec_post.absolute_url}}">
+            	<img src="{{ rec_post.post_list_summary_featured_image }}" class="tab-content-img">
+			</a>
+{% endif %}
+<div class="post-title"><a href="{{ rec_post.name }}">{{ rec_post.name }}</a></div>
+{% if rec_post.topic_list %}
+
+<span id="hubspot-topic_data">
+{% for topic in rec_post.topic_list %}
+<a class="topic-link" href="{{ group.absolute_url }}/topic/{{ topic.slug }}">{{ topic.name }}</a>{% if not loop.last %},{% endif %}
+{% endfor %}
+</span>
+{% endif %}
+
+<span class="custom-date">
+{{ rec_post.publish_date_local_time.strftime('%B') }}
+{{ rec_post.publish_date_local_time.strftime('%d') }},
+{{ rec_post.publish_date_local_time.strftime('%Y') }}
+</span>
+{% endfor %}
+</div>

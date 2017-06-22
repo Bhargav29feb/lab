@@ -1,0 +1,7 @@
+﻿$(document).ready(function(){
+      $(".onclick").click(function(){
+      $(".custom-search-form").toggle();
+$(".custom-search-form").focus();
+      });
+      $(".custom-search-form").hide();
+});

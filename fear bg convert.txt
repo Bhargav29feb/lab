@@ -1,0 +1,26 @@
+////////////
+
+<div class="custom-post-item" style="background:url('{{ content.post_list_summary_featured_image }}')">
+                           
+                               <div class="hs-featured-image-wrapper">                                      
+                                   {% if content.post_list_summary_featured_image %}
+                                       <img src="{{ content.post_list_summary_featured_image }}">                                        
+                                   {% endif %}
+                               </div>
+                                <div class="post-header">
+                                   <div class="custom-date">                                        
+                                       <span class='date_group'>
+                                           <span class='month'>{{ content.publish_date_local_time.strftime('%b') }}</span>, <!-- Display abbriviated month ex. Jan, Feb, Mar -->
+                                           <span class='day'>{{ content.publish_date_local_time.strftime('%d') }}</span> <!-- Display day number with leading zero, ex. 01, 02, 03, ...30, 31 -->
+                                           <span class='year'>{{ content.publish_date_local_time.strftime('%Y') }}</span>, <!-- Display 4 digit year, ex. 2013 -->
+                                       </span>
+                                   </div>
+                                   <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                                       {%if content.blog_post_author %}
+                                           {{ content.blog_post_author.display_name }}
+                                       {% endif %}
+                                   </div>
+                                   <h2>{{ content.name }}</h2>                                    
+                               </div>
+                           
+                       </div>

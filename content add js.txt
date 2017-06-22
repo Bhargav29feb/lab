@@ -1,0 +1,1 @@
+$('.custom-menu-primary .hs-menu-wrapper > ul > li:contains("Schedule Appointment")').addClass("schedule-form");

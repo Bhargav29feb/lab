@@ -1,0 +1,19 @@
+.one-column input[type="text"],
+.one-column input[type="password"], 
+.one-column input[type="datetime"], 
+.one-column input[type="datetime-local"], 
+.one-column input[type="date"],
+.one-column input[type="month"], 
+.one-column input[type="time"],
+.one-column input[type="week"], 
+.one-column input[type="number"], 
+.one-column input[type="email"], 
+.one-column input[type="url"], 
+.one-column input[type="search"], 
+.one-column input[type="tel"], 
+.one-column input[type="color"],
+.one-column input[type="file"],
+.one-column textarea,
+.one-column select {
+   width: 100% !important;
+}

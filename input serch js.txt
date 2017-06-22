@@ -1,0 +1,47 @@
+<form id="target" action="http://www.plantorama.dk/soeg?Search">
+ <input class="text" type="text" name="s" size="17" value="" id="q" placeholder="Søg efter varer her"/>
+ <a href="#" class="submit" onclick="doSearch()"></a>
+</form>
+<script>
+function doSearch() {
+ var q = document.getElementById("q").value;
+ var search_url = "http://www.plantorama.dk/soeg?Search=";
+ document.location.href = search_url+q;
+ return true;
+}
+$( "#target" ).submit(function( event ) {
+ event.preventDefault();
+var q = document.getElementById("q").value;
+ var search_url = "http://www.plantorama.dk/soeg?Search=";
+ document.location.href = search_url+q;
+ return false;
+});
+</script>
+<form class="gsc-search-box" accept-charset="utf-8" id="target" action="http://www.valleyirrigation.com/valley-irrigation/us/search-results?q">
+<table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody>
+<tr><td class="gsc-input">
+<input autocomplete="off" type="text" size="17" class="img" name="s" title="search" id="q" dir="ltr" spellcheck="false">
+<input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button">
+<input type="button" value="Search" class="gsc-search-button submit" title="search" onclick="doSearch()">
+</td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;
+</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding">
+<tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text">
+<div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img">
+<img src="https://www.google.com/uds/css/small-logo.png" class="gsc-branding-img">
+</td></tr></tbody></table></form>
+
+<script>
+function doSearch() {
+ var q = document.getElementById("q").value;
+ var search_url = "http://www.valleyirrigation.com/valley-irrigation/us/search-results?q";
+ document.location.href = search_url+q;
+ return true;
+}
+$( "#target" ).submit(function( event ) {
+ event.preventDefault();
+var q = document.getElementById("q").value;
+ var search_url = "http://www.valleyirrigation.com/valley-irrigation/us/search-results?q";
+ document.location.href = search_url+q;
+ return false;
+});
+</script>

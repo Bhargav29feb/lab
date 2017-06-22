@@ -1,0 +1,4 @@
+ $('.custom-search .top-bar__toggle-topbar.search-icon > a').click(function() {
+          $('body').toggleClass('search-close-icon');    
+          
+    });

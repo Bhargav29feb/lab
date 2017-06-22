@@ -1,0 +1,104 @@
+$(function() {
+
+    /** 
+     * Mobile Nav
+     *
+     * Hubspot Standard Toggle Menu
+     */
+
+    $('.custom-menu-primary').addClass('js-enabled');
+    
+    /* Mobile button with three lines icon */
+        $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger"><i></i></div>');
+        
+    /* Uncomment for mobile button that says 'MENU' 
+        $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger">MENU</div>');
+    */
+    
+    $('.custom-menu-primary .flyouts .hs-item-has-children > a').after(' <div class="child-trigger"><i></i></div>');
+    $('.mobile-trigger').click(function() {
+        $(this).next('.custom-menu-primary .hs-menu-wrapper').slideToggle(250);
+        $('body').toggleClass('mobile-open');
+        $('.child-trigger').removeClass('child-open');
+        $('.hs-menu-children-wrapper').slideUp(250);
+        return false;
+     });
+
+    $('.child-trigger').click(function() {
+        $(this).parent().siblings('.hs-item-has-children').find('.child-trigger').removeClass('child-open');
+        $(this).parent().siblings('.hs-item-has-children').find('.hs-menu-children-wrapper').slideUp(250);
+        $(this).next('.hs-menu-children-wrapper').slideToggle(250);
+        $(this).next('.hs-menu-children-wrapper').children('.hs-item-has-children').find('.hs-menu-children-wrapper').slideUp(250);
+        $(this).next('.hs-menu-children-wrapper').children('.hs-item-has-children').find('.child-trigger').removeClass('child-open');
+        $(this).toggleClass('child-open');
+        $(this).parent().siblings('.hs-item-has-children').removeClass('child-bg');
+        $(this).parent().toggleClass('child-bg');
+        return false;
+    });
+    
+    $('.footer-container-wrapper').after('<a id="back-to-top" href="#top"><span></span></a>');
+    $("#back-to-top").hide();
+     $('.blog .blog-sidebar ul li.inquiry > a').before('<a class="form-trigger"><span class="open-sub"></span></a>');
+    
+    $(window).scroll(function(){
+    if ($(window).scrollTop()>100){
+    $("#back-to-top").fadeIn(500);
+    }
+    else
+    {
+    $("#back-to-top").fadeOut(500);
+    }
+    });
+    //back to top
+    $("#back-to-top").click(function(){
+    $('body,html').animate({scrollTop:0},500);
+    return false;
+    });
+    
+    $('.child-trigger').click(function() {
+    $('body').toggleClass('explore');  
+    });
+    
+    /* $('.child-trigger').click(function() {
+     $('body').toggleClass('bg-1');  
+    });*/
+    
+    $('.custom-menu-primary .hs-menu-wrapper > ul > li:contains("Insurance")').addClass("schedule-form");
+    
+     $('.blog .blog-sidebar ul li.inquiry .form-trigger').click(function() {
+    $('body').toggleClass('blog-form-icon');  
+    });
+    
+   $(document).ready(function(){
+    //click the following to toggle
+    $(".blog .blog-sidebar ul li.inquiry .form-trigger").click(function() {
+       //need the following to toggle
+       $(".blog .blog-sidebar .custom-inquiry-form").slideToggle(700);  
+	});
+});
+
+$(".custom-dropdown-menu ul li").hover(function() { 
+    $(this).addClass("cfse_a"); 
+    }, function() {
+    $(this).removeClass("cfse_a"); 
+    });
+
+
+$('.custom-insurance-banking ul > li:first-child ul.hs-menu-children-wrapper').css({'opacity' : '1' , 'visibility':'visible'});
+
+
+var list1 = $('.custom-insurance-banking ul > li:first-child');
+var list2 = $('.custom-insurance-banking ul > li:last-child');
+
+$(list1).hover(function(){
+  $('.custom-insurance-banking ul > li:last-child ul.hs-menu-children-wrapper').css({'opacity' : '0' , 'visibility':'hidden'});
+  $('.custom-insurance-banking ul > li:first-child ul.hs-menu-children-wrapper').css({'opacity' : '1' , 'visibility':'visible'});
+});
+
+$(list2).hover(function(){
+  $('.custom-insurance-banking ul > li:first-child ul.hs-menu-children-wrapper').css({'opacity' : '0' , 'visibility':'hidden'});
+  $('.custom-insurance-banking ul > li:last-child ul.hs-menu-children-wrapper').css({'opacity' : '1' , 'visibility':'visible'});
+});
+
+
+});

@@ -1,0 +1,23 @@
+<script>
+$(document).ready(function(){
+$('.hs-item-has-children').click(function() {
+$(this).siblings().removeClass('clicked');
+$(this).toggleClass('clicked');
+});
+
+});
+</script>
+
+
+CSS For this Script
+
+.hs-menu-wrapper.hs-menu-flow-horizontal.flyouts > ul li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
+opacity: 0;
+visibility: hidden;
+}
+
+.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.clicked ul{
+opacity: 1 !important;
+visibility: visible !important;
+display:block !important;
+}

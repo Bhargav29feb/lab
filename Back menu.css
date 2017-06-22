@@ -1,0 +1,81 @@
+/*--------------------back menu- csss-------------*/
+
+   .custom-menu-primary .hs-menu-wrapper > ul{
+       position:relative !important;
+    }
+    .custom-menu-primary .hs-menu-wrapper > ul > li >a{
+        position: relative;
+    }
+
+    .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children{
+        position:static !important;
+    }
+    .custom-menu-primary .hs-menu-wrapper>ul>li.hs-menu-item.hs-item-has-children>ul{
+        position: absolute !important;
+        transform: translate(100%,0);
+        padding: 0;
+        top: 0;
+        box-shadow: none;
+        transition: 0.5s all !important;
+        background-color:none;
+        display: block !important;
+        padding-top: 0px;
+            margin-top: 10px;
+        height: auto;
+        overflow-y: auto !important;
+    }
+    .custom-menu-primary .hs-menu-wrapper>ul>li.child-open.hs-menu-item.hs-item-has-children>ul {
+        transform: translate(0, 0);
+        transition: 0.5s all !important;
+    }
+   .custom-menu-primary .hs-menu-wrapper>ul>li.child-open.hs-menu-item.hs-item-has-children>ul li.dl-back a {
+    color: #fff;
+    display: block;
+    font-size: 14px !important;
+    background: none !important;
+    padding: 15px !important;
+    font-weight: 300 !important;
+    line-height: 18.2px !important;
+    background-color: #009bd5 !important;
+}
+.custom-menu-primary .hs-menu-wrapper>ul>li.child-open.hs-menu-item.hs-item-has-children>ul li.dl-back a:hover{
+        background-color: #09bcff !important;
+}
+.custom-menu-primary .hs-menu-wrapper>ul>li.child-open.hs-menu-item.hs-item-has-children>ul li.dl-back {
+}
+.form-none .custom-menu-primary .hs-menu-wrapper>ul {
+    visibility: hidden;
+    height: auto;
+    min-height: 423px !important;
+}
+.form-none.mobile-open .custom-menu-primary.mobile.js-enabled, .form-none.mobile-open .custom-menu-primary .hs-menu-wrapper{
+    background: transparent !important;
+}
+.custom-header .page-center{
+    position: relative;
+}
+
+
+/*--------------------back menu- js-------------*/
+
+
+ $('.custom-menu-primary .hs-menu-wrapper > ul > li > a').click(function() {
+    $(this).parent().siblings('.hs-item-has-children').removeClass('child-open');
+    $(this).parent().toggleClass('child-open');
+    });
+    $('.custom-menu-primary .hs-menu-wrapper > ul > li').each(function(){
+    var alink = $(this).children('a').attr('href');
+    var atext = $(this).children('a').text();
+    
+    $(this).children('ul').prepend('<li class="dl-back"><a href="javascript:void(0)">Back</a>');
+    });
+    $('.dl-back').click(function() {
+    $(this).parent().parent().removeClass('child-open');
+    });
+    function removeMenuLink(){
+    if ( $(window).width() <= 934) {     
+    $('.custom-menu-primary .hs-menu-wrapper > ul > li > a').attr('href', 'javascript:void(0)');
+    } 
+    }
+    removeMenuLink();
+    $(window).on("resize", removeMenuLink);

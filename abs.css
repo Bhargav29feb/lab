@@ -1,0 +1,15 @@
+Banner Image Wrapper
+custom-banner-image-wrapper
+Page Center
+page-center
+custom-sec-header-title
+Banner Image
+{% image "background_image" label='Select a background image', 
+src='//cdn2.hubspot.net/hubfs/2768705/Vendisys%20_Jan2017/images/banner-about-1.jpg', 
+export_to_template_context=True %}
+
+<style>
+.custom-banner-image-wrapper{
+   background:url('{{ widget_data.background_image.src }}');
+}
+</style>

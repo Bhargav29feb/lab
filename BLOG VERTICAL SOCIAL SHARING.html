@@ -1,0 +1,141 @@
+<div class="blog-section">
+    <div class="blog-listing-wrapper cell-wrapper">
+        {# simple_list_page indicates the "blog/all" page, which is a list of links to every blog post #}
+        <div class="post-listing{% if simple_list_page %}-simple{% endif %}">
+            {% if blog_author %}
+                <div class="hs-author-profile">
+                    <h2 class="hs-author-name">{{ blog_author.display_name }}</h2>
+                    {% if blog_author.avatar %} <div class="hs-author-avatar"> <img src="{{ blog_author.avatar }}"> </div> {% endif %}
+                    <div class="hs-author-bio">{{ blog_author.bio }}</div>
+                    {% if blog_author.has_social_profiles %}
+                        <div class="hs-author-social-section">
+                            <span class="hs-author-social-label">Find me on:</span>
+                            <div class="hs-author-social-links">
+                                {% if blog_author.facebook %}
+                                    <a href="{{ blog_author.facebook }}" target="_blank" class="hs-author-social-link hs-social-facebook">&nbsp;</a>
+                                {% endif %}
+                                {% if blog_author.linkedin %}
+                                    <a href="{{ blog_author.linkedin }}" target="_blank" class="hs-author-social-link hs-social-linkedin">&nbsp;</a>
+                                {% endif %}
+                                {% if blog_author.twitter %}
+                                    <a href="{{ blog_author.twitter }}" target="_blank" class="hs-author-social-link hs-social-twitter">&nbsp;</a>
+                                {% endif %}
+                                {% if blog_author.google_plus %}
+                                    <a href="{{ blog_author.google_plus }}?rel=author" target="_blank" class="hs-author-social-link hs-social-google-plus">&nbsp;</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <h3 class="hs-author-listing-header">Recent Posts</h3>
+            {% endif %}
+            {% for content in contents %}
+                <div class="post-item">
+                    {% if not simple_list_page %}
+                        <div class="post-header">
+                            <h2><a href="{{content.absolute_url}}">{{ content.name }}</a></h2>
+                            <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                                {%if content.blog_post_author %}
+                                     <a class="author-link">{{ content.blog_post_author.display_name }}</a><span class="custom-date">{{ content.publish_date_local_time.strftime('%B') }}  {{ content.publish_date_local_time.strftime('%d') }},
+									  {{ content.publish_date_local_time.strftime('%Y') }}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="post-body clearfix">
+                            <!--post summary-->
+                            {% if content.post_list_summary_featured_image %}
+                                <div class="hs-featured-image-wrapper">
+                                    <a href="{{content.absolute_url}}" title="" class="hs-featured-image-link">
+                                        <img src="{{ content.post_list_summary_featured_image }}" class="hs-featured-image">
+                                    </a>
+                                </div>
+                            {% endif %}
+							<div class="custom-content">
+					     {{ content.post_list_content|safe|truncatehtml(350) }}
+                            {% if content_group.show_summary_in_listing %}
+                            <a class="more-link" href="{{ content.absolute_url }}">Read More</a>
+                            {% endif %}
+                            {% if content.topic_list %}
+                             <p id="hubspot-topic_data"> Category:
+                                {% for topic in content.topic_list %}
+                                    <a class="topic-link" href="{{ group.absolute_url }}/topic/{{ topic.slug }}">{{ topic.name }}<span>,</span></a>{% if not loop.last %}{% endif %}
+                                {% endfor %}
+                             </p>
+                        {% endif %}
+                        
+						</div>
+						
+                        </div>
+                        
+                     <div class="social-sharing-widget-vertical">
+                <!-- Twitter Sharing -->
+                <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="hubspot" data-url="{{ content.absolute_url }}" counturl="{{ content.absolute_url }}">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            
+                <!-- Facebook Sharing -->
+                 <iframe src="https://www.facebook.com/plugins/like.php?href={{ content.absolute_url }}&amp;send=false&amp;layout=box_count&amp;width=75&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=445851638794887" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:63px; margin-top:3px;" allowTransparency="true"></iframe>
+            
+                 <!-- Google Plus Sharing -->
+                <div class="g-plusone" data-size="tall" data-href="{{ content.absolute_url }}"></div>
+                <script type="text/javascript">
+                  (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0]; 
+                    s.parentNode.insertBefore(po, s);
+                  })();
+                </script>
+            
+                <!-- LinkedIn Sharing -->
+                <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                <script type="IN/Share" data-url="{{ content.absolute_url }}" data-counter="top"></script>
+            </div>
+                    {% else %}
+                        <h2 class="post-listing-simple"><a href="{{content.absolute_url}}">{{ content.name }}</a></h2>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>    
+        
+    </div>
+</div>
+
+<!-- Numbered Pagination -->
+<div class="blog-pagination">
+    {% set page_list = [-2, -1, 0, 1, 2] %}
+    {% if contents.total_page_count - current_page_num == 1 %}{% set offset = -1 %}
+    {% elif contents.total_page_count - current_page_num == 0 %}{% set offset = -2 %}
+    {% elif current_page_num == 2 %}{% set offset = 1 %}
+    {% elif current_page_num == 1 %}{% set offset = 2 %}
+    {% else %}{% set offset = 0 %}{% endif %}
+
+    <div class="blog-pagination-left">
+        {% if last_page_num %}<a class="prev-link" href="{{ blog_page_link(last_page_num) }}">←</a>{% endif %}
+        {% if contents.total_page_count > 5 %}
+            {% if current_page_num >= 4 %}
+                <a href="{{ blog_page_link(1) }}">1</a>
+                <a class="elipses" href="{% if current_page_num <= 5 %}{{ blog_page_link(1) }}{% else %}{{ blog_page_link(current_page_num - 5) }}{% endif %}">...</a>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="blog-pagination-center">
+        {% for page in page_list %}
+            {% set this_page = current_page_num + page + offset %}
+            {% if this_page > 0 and this_page <= contents.total_page_count %}
+                <a {% if this_page == current_page_num %}class="active"{% endif %} href="{{ blog_page_link(this_page) }}">{{ this_page }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="blog-pagination-right">
+        {% if contents.total_page_count > 5 %}
+            {% if contents.total_page_count - current_page_num > 2 %}
+                <a class="elipses" href="{% if contents.total_page_count - current_page_num <= 5 %}{{ contents.total_page_count }}{% else %}{{ blog_page_link(current_page_num + 5) }}{% endif %}">...</a>
+                <a href="{{ blog_page_link(contents.total_page_count) }}">{{ contents.total_page_count }}</a>
+            {% endif %}
+        {% endif %}   
+        {% if next_page_num %}<a class="next-link" href="{{ blog_page_link(current_page_num + 1) }}">→</a>{% endif %}
+    </div>
+</div>
+
+

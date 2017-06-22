@@ -1,0 +1,3 @@
+$('.body-container, .footer-container').click(function(){
+$('body').removeClass("show-mobile-nav ");
+});

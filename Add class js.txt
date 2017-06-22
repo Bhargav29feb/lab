@@ -1,0 +1,4 @@
+$('.custom-explore > a').click(function() {
+      $('body').addClass('explore');    
+      
+});

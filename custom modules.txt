@@ -1,0 +1,15 @@
+<div class="custom-banner-image-wrapper">
+<div class="custom-section-header" style="background:url('{{ widget.banner_image.src }}')">
+    <div class="page-center">
+        <div class="banner-image">
+            {% if widget.image.src %}
+                <img src="{{ widget.image.src }}" width="{{ widget.image.width }}" height="{{ widget.image.height }}" alt="{{ widget.image.alt }}">
+            {% endif %}
+        </div>
+        <div class="banner-content">
+            {{ widget.banner_content }}
+        </div>
+        
+    </div>
+</div>
+</div>

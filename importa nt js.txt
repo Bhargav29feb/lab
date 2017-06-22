@@ -1,0 +1,152 @@
+$(function() {
+
+    /** 
+     * Mobile Nav
+     *
+     * Hubspot Standard Toggle Menu
+     */
+
+    $('.custom-menu-primary').addClass('js-enabled');
+    
+    /* Mobile button with three lines icon */
+        
+    /* Uncomment for mobile button that says 'MENU' 
+        $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger">MENU</div>');
+    */
+    
+    $('.custom-menu-primary .flyouts .hs-item-has-children > a').after(' <div class="child-trigger"><i></i></div>');
+    $('.mobile-trigger').click(function() {
+        $('.custom-menu-primary .hs-menu-wrapper').slideToggle(250);
+        $('body').toggleClass('mobile-open');
+        $('.child-trigger').removeClass('child-open');
+        $('.hs-menu-children-wrapper').slideUp(250);
+        return false;
+     });
+
+    $('.child-trigger').click(function() {
+        $(this).parent().siblings('.hs-item-has-children').find('.child-trigger').removeClass('child-open');
+        $(this).parent().siblings('.hs-item-has-children').find('.hs-menu-children-wrapper').slideUp(250);
+        $(this).next('.hs-menu-children-wrapper').slideToggle(250);
+        $(this).next('.hs-menu-children-wrapper').children('.hs-item-has-children').find('.hs-menu-children-wrapper').slideUp(250);
+        $(this).next('.hs-menu-children-wrapper').children('.hs-item-has-children').find('.child-trigger').removeClass('child-open');
+        $(this).toggleClass('child-open');
+        return false;
+    });
+    
+    
+    $('.custom-mobile-help-form').wrapInner('<div class="mobile-panel"></div');
+    
+    
+ 
+    
+    
+
+
+
+
+    
+    
+        
+        //back to top
+        $("#back-to-top").click(function(){
+        $('body,html').animate({scrollTop:0},500);
+        return false;
+        });
+        
+        
+            /**
+            * TinyNav for HubSpot COS v1.0
+            *
+            * A version of http://tinynav.viljamis.com v1.1 by @viljamis, modified by Radu Mihai to integrate in HubSpot COS
+            * Original file URL and author: http://tinynav.viljamis.com v1.1 by @viljamis
+            */
+            
+            (function(e,t,n){e.fn.tinyNav=function(r){var s=e.extend({active:"selected",header:"",label:""},r);return this.each(function(){n++;var r=e(this),o="tinynav",u=o+n,a=".l_"+u,f=e("<select/>").attr({id:u}).addClass(o+" "+u);if(r.is("ul,ol")){if(s.header!==""){f.append(e('<option value="select-header"/>').text(s.header))}var l="";r.addClass("l_"+u).find("a").each(function(){l+='<option value="'+e(this).attr("href")+'">';var t;for(t=0;t<e(this).parents("ul, ol").length-1;t++){l+="- "}l+=e(this).text()+"</option>"});f.append(l);if(!s.header){f.find(":eq("+e(a+" li").index(e(a+" li."+s.active))+")").attr("selected",true)}else{f.find(":eq("+e(a+" li").index(e(a+" li."+s.active))+")").next().attr("selected",true)}f.change(function(){if(e(this).val()!="select-header"){t.location.href=e(this).val()}});e(a).after(f);if(s.label){f.before(e("<label/>").attr("for",u).addClass(o+"_label "+u+"_label").append(s.label))}}})}})(jQuery,this,0)
+            
+            // Configuration
+            $(function() {
+                
+                
+            
+            $('html').addClass('js-enabled');
+            $('.custom-archives ul').tinyNav({
+            active: 'active', // The class for the active item in menu (don't change)
+            header: 'Select Month' // Default value if there is no active item in menu (optional for COS)
+            // label: '' // Add a label (optional)
+            });
+            
+            
+            
+             
+            $('html').addClass('js-enabled');
+            $('.custom-categories ul').tinyNav({
+            active: 'active', // The class for the active item in menu (don't change)
+            header: 'Select Category' // Default value if there is no active item in menu (optional for COS)
+            // label: '' // Add a label (optional)
+            });
+            
+         
+            
+             
+    $('.custom-categories ul').after(' <span class="custom-post-label">Categories</span>');
+    
+    $('.custom-archives ul').before(' <span class="custom-archives-label">Archives</span>');
+})
+        
+   $('.custom-mobile-toggle').hide();    
+   $('.mobile-search.mobile-button').click(function(){
+        $('.custom-mobile-search.custom-mobile-toggle').slideToggle(); 
+        $('.custom-mobile-help-form.custom-mobile-toggle').hide(); 
+          $('body').toggleClass('custom-form-show-search');
+        $('.custom-mobile-social-icons').hide(); 
+   }); 
+   
+   $('.mobile-panel-close').click(function(){
+        $('.custom-mobile-search.custom-mobile-toggle').slideUp(); 
+   }); 
+  
+   
+   $('.mobile-contact.mobile-button').click(function(){
+        $('.custom-mobile-help-form.custom-mobile-toggle').slideToggle(); 
+        $('.custom-mobile-search.custom-mobile-toggle').hide();
+       
+        $('.custom-mobile-social-icons').hide(); 
+   }); 
+   
+   $('.custom-mobile-help-form h3').click(function(){
+        $('.custom-mobile-help-form.custom-mobile-toggle').slideUp(); 
+   }); 
+   
+   
+   $('.mobile-share.mobile-button').click(function(){
+        $('.custom-mobile-social-icons').slideToggle();
+        $('.custom-mobile-help-form.custom-mobile-toggle').hide(); 
+       
+        $('.custom-mobile-search.custom-mobile-toggle').hide();
+   }); 
+   
+   $('.mobile-panel-close').click(function(){
+        $('.custom-mobile-social-icons').slideUp(); 
+   }); 
+   
+   
+    $('.mobile-trigger').click(function(){
+        $('.custom-mobile-social-icons').hide();
+        $('.custom-mobile-help-form.custom-mobile-toggle').hide(); 
+        $('.custom-mobile-search.custom-mobile-toggle').hide();
+   }); 
+   
+   $('.mobile-button').click(function(){
+        $('.custom-menu-primary.js-enabled .hs-menu-wrapper').hide();
+   }); 
+   
+   
+   
+   
+   
+   
+   
+    
+   
+
+});
