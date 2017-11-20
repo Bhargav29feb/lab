@@ -181,6 +181,40 @@ $('.ddc-btn-nav').click(function(){
   };
 });
 
+/*==================================*/
+
+
+		  
+// Header room Effect
+  var previousScroll = 0;
+ $(window).scroll(function() {
+     var currentScroll = $(this).scrollTop();
+     if (currentScroll < previousScroll) $('body:not(.page-template-page-customer-onboarding) .header-container').removeClass('animate');
+     else if (currentScroll < 500) $('body:not(.page-template-page-customer-onboarding) .header-container').removeClass('animate');
+     else $('body:not(.page-template-page-customer-onboarding) .header-container').addClass('animate');
+     previousScroll = currentScroll;
+ });
+
+
+$(document).scroll(function() {
+      var y = $(this).scrollTop();
+      if (y > 120) {
+          $('.custom-header-bg').addClass('scroll-header1');
+          $('body').addClass('show-header1');
+      } else {
+          $('.custom-header-bg').removeClass('scroll-header1');
+          $('body').removeClass('show-header1');
+      }
+      if (y > 220) {
+          $('.custom-header-bg').addClass('scroll-header');
+          $('body').addClass('show-header');
+      } else {
+          $('.custom-header-bg').removeClass('scroll-header');
+          $('body').removeClass('show-header');
+      }
+  });
+
+
 
 
 
