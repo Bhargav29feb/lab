@@ -1,0 +1,22 @@
+.subscription-template .email-prefs .item .item-inner {
+    padding: 15px 9px;
+}
+.subscription-template .checkbox-row span.fakelabel span {
+    font-size: 13px;
+    width: calc(100% - 13px);
+    float: left;
+    margin-left: 0;
+    padding-left: 8px;
+}
+.subscription-template .email-prefs .item .item-inner{
+   padding: 8px; 
+}
+
+.subscribe-options label {
+    margin-left: 0;
+}
+
+.subscription-template .item-inner .checkbox-row input {
+    width: 13px;
+    float: left;
+}

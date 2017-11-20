@@ -1,0 +1,25 @@
+
+{% set my_topics = blog_authors('default', 250) %}
+<p>BLOGGERE</p>
+{% for item in my_topics %}
+<div class="custom-bottom-author">
+   <a href="{{ blog_author_url(group.id, item.slug) }}">
+     {% if item.avatar %}
+		   <span class="avatar" title="Gæsteskribent">
+			<img alt="{{ item.display_name }}" src="{{ item.avatar }}">
+		   </span>
+	   {% else %}
+		   <span class="avatar" title="Gæsteskribent">
+			<img alt="{{ item.display_name }}" src="https://cdn2.hubspot.net/hubfs/3430464/author-avatar.png">
+		   </span>
+	   {% endif %}
+	   
+	   <span class="name">{{ item }}</span>
+	   
+   </a>
+</div>
+{% endfor %}
+
+
+  
+

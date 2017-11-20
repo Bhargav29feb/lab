@@ -1,0 +1,18 @@
+{% set pageSize = contents|length %}
+{% set totalPostCount = blog_total_post_count(blog.id) %}
+{% set startIndex = 0 %}
+{% set endIndex = 0 %}
+{% if current_page_num < 2 %}
+{% set current_page_num = 1 %}
+{% endif %}
+{% if current_page_num != contents.total_page_count %}
+{% set startIndex = pageSize * current_page_num - pageSize + 1 %}
+{% set endIndex = pageSize * current_page_num %}
+{% endif %}
+{% if current_page_num == contents.total_page_count %}
+{% set startIndex = totalPostCount - pageSize + 1 %}
+{% set endIndex = totalPostCount %}
+{% endif %}
+
+<div class="page-number">Showing <span class="start-post-no">{{ startIndex }}</span>-<span class="end-post-no">{{ endIndex }}</span>of 
+<span class="total-post-count">{{ totalPostCount }}</span><span>{{ group.public_title }}:</span></div>

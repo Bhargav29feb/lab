@@ -1,3 +1,4 @@
+
 .blog-listing-wrapper .post-listing .post-item {
     border-bottom: 1px solid #cccccc;
     padding: 0 0 20px;
@@ -30,6 +31,7 @@
    margin-top: 0;
    font-style: italic;
 }
+
 .hs-form .input ul {
     list-style: none;
     padding: 0;
@@ -47,13 +49,7 @@ margin: 10px 0;
    display: inline-block;
    padding-top: 10px;
 }
-.hs-blog-social-share{
-    border-bottom: 1px solid #cccccc;
-    border-top: 1px solid #cccccc;
-    height: auto;
-    margin-top: 10px;
-    padding: 10px 0 0;
-}
+
 .blog .blog-sidebar .cell-wrapper{
    margin-bottom: 15px;
 }
@@ -61,38 +57,11 @@ margin: 10px 0;
 .blog .blog-sidebar ul li{
    padding: 0 0 10px;
 }
-#comments-listing {
-   border: 1px solid #ccc;
-   margin-bottom: 30px;
-   margin-top: 30px;
-}
-.comment.depth-0 {
-   border-bottom: 1px solid #000 !important;
-   border-top: medium none !important;
-   margin: 0 10px 10px !important;
-   padding: 0 15px !important;
-}
-.comment-body {
-   border-bottom: medium none;
-   color: {{ baseColor }};
-   display: block;
-   font-family: {{ baseFontFamily }};
-   font-size: {{ baseFontSize }};
-   line-height: {{ baseLineHeight }};
-   padding: 0;
-}
-.comment-reply-to{
-   margin-bottom: 15px;
-}
 .comment-from h4 {
    margin: 0;
    padding-top: 15px;
 }
-.comment-date {
-   color: {{ baseColor }} !important;
-   display: block !important;
-   text-align: left;
-}
+
 #hubspot-author_data .hs-author-avatar {
     max-width: 70px;
     padding: 10px 10px 10px 0;
@@ -107,4 +76,41 @@ margin: 10px 0;
    height: auto;
    margin-top: 10px;
    padding: 10px 0 0;
+}
+
+/*======post page comment form=========*/
+
+
+#comments-listing {
+   border: 1px solid #ccc;
+   margin-bottom: 30px;
+   margin-top: 30px;
+}
+.comment.depth-0 {
+   border-bottom: 1px solid #000 !important;
+   border-top: medium none !important;
+   margin: 0 10px 10px !important;
+   padding: 0 15px !important;
+}
+.comment-body {
+   border-bottom: medium none;
+   color: inherit;
+   display: block;
+   padding: 0;
+}
+.comment-reply-to{
+margin-bottom: 15px;
+}
+.comment-from h4 {
+   margin: 0;
+   padding-top: 15px;
+}
+
+.comment-from h4 a {
+   text-decoration: none;
+}
+.comment-date {
+   color: inherit !important;
+   display: block !important;
+   text-align: left;
 }

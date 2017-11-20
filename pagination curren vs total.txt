@@ -1,0 +1,11 @@
+ <div class="post-no-pagination">
+			{% set rec_posts = blog_recent_posts(group.id) %}
+			{% for rec_post in rec_posts|reverse %}
+				{% if content.absolute_url == rec_post.absolute_url %}
+				   <strong class="post-count"> {{ loop.index }}</strong>
+				{% endif %}                            
+				{% if loop.last %}
+					<span class="total-count">/ {{ loop.index }}</span>
+				{% endif %}
+			{% endfor %}
+</div>

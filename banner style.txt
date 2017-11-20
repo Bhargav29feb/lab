@@ -1,0 +1,3 @@
+<div class="custom-banner" {% if widget.banner_image.src %} style="background-image:url('{{ widget.banner_image.src }}')" {% else %} style="background-color: rgba(0,0,0,0.8);" {% endif %}>
+   
+</div>

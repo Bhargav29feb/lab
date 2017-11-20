@@ -1,0 +1,38 @@
+{% set my_topics = blog_topics('default', 250) %}    
+    <ul>
+       {% for item in my_topics %}
+           <li><a href="{{ group.absolute_url }}/topic/{{item.slug}}">{{ item }}</a>
+                {% set related_posts = blog_recent_topic_posts('default', item.slug, 3 ) %}
+                   <div class="sub-menu">
+                       <ul class="sub-posts">
+                           {% for post in related_posts %}
+                             <li>
+                               <span>
+                                   <a href="{{post.absolute_url}}">
+                                       <img src="{{ post.featured_image }}" alt="{{ post.name }}"> 
+                                   </a>
+                               </span>
+                               <a href="{{post.absolute_url}}">{{ post.name}}</a>
+                           {% endfor %}
+                           </li>
+                       </ul> 
+                   </div>
+           </li>
+       {% endfor %}
+   </ul>  
+       
+   {% endfor %}
+<div class="custom_listing_comments">
+{% set comments_number =  content.comment_list|length %}
+{% if comments_number == 1 %}
+    {% set comments_lable = "Comment" %}
+{% else %}
+    {% set comments_lable = "Comments" %}
+{% endif %}
+
+{% if comments_number == 0 %}
+    <a href="{{content.absolute_url}}#comments-listing">No Comment</a>
+{% else %}
+    <a href="{{content.absolute_url}}#comments-listing">{{ comments_number }} {{ comments_lable }}</a>
+{% endif %}                                 
+</div>

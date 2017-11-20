@@ -1,0 +1,21 @@
+
+
+{% set rec_posts = blog_recent_posts('default', 3) %}
+    <h3>RECENT POSTS</h3>
+    {% for rec_post in rec_posts %}
+        <div class="custom-rec-post"> 
+		   <div class="custom-rec-post-inner"> 
+		  <h2><a href="{{rec_post.absolute_url}}">{{ rec_post.name }}</a></h2>
+		   <div class="rec-post-date">
+                    {{ rec_post.publish_date_local_time.strftime('%d') }}
+                    {{ rec_post.publish_date_local_time.strftime('%B') }} 
+            </div>
+			 {{ rec_post.post_list_content|safe|truncatehtml(200) }}
+			 <div class="custom-relate-read">
+			   {% if content_group.show_summary_in_listing %}
+					<a class="more-link" href="{{ rec_post.absolute_url }}">Read more</a>
+				{% endif %} 
+				</div>
+        </div>	
+		</div>
+{% endfor %}
