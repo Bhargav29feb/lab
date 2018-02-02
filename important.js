@@ -96,7 +96,7 @@ $(document).ready(function(){
 Language selecter code
 
 
-<script> 
+
 
 <div id="google_translate_element"></div>
 <script> 
