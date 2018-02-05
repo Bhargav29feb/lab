@@ -1,0 +1,19 @@
+warap and add javascrip
+
+
+var div = document.getElementById('banner');
+var link = document.createElement('a');
+link.innerHTML = div.outerHTML;
+link.setAttribute('href', '#');
+div.parentNode.insertBefore(link, div);
+div.remove();
+
+
+function animation_fun(){
+	var body = document.body;
+	body.classList.add("banner-show");
+	link.setAttribute('href', 'http://nlpcaptcha.in/es/index.html');
+	
+	
+	
+  }
