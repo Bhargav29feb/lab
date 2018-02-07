@@ -18,6 +18,12 @@ function animation_fun(){
 	
   }
 
+
+add and remove and toggle
+
+home.classList.add('bg-color');
+home.onclick = function(){ this.classList.remove('home_bar');  }
+
 function demo_function(){tById('demo');
     toggle_me.classList.toggle('hello-bhargav');
   
