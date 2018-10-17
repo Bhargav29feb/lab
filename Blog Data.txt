@@ -1,11 +1,7 @@
 
 <!-- this blog uses separate master template for listing page  -->
-
-
 {{ content.post_list_content|safe|truncatehtml(400) }}
-
 ::-webkit-scrollbar {
-width: 0;
+  width: 0;
 }
-
- {{ content.post_list_content|truncatehtml(28, '[...]' , false) }}
+{{ content.post_list_content|truncatehtml(28, '[...]' , false) }}
